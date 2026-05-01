@@ -1,6 +1,6 @@
-import BlogListGrid from "@/components/blog/blog-list-grid";
+import BlogFilterableList from "@/components/blog/blog-filterable-list";
 import BlogListHero from "@/components/blog/blog-list-hero";
-import { blogPosts } from "@/components/blog/blog-posts-data";
+import { blogCategories, blogPosts } from "@/components/blog/blog-posts-data";
 
 export const metadata = {
   title: "Blog",
@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <div>
       <BlogListHero />
-      <BlogListGrid posts={blogPosts} />
+      <BlogFilterableList categories={blogCategories} posts={blogPosts} />
     </div>
   );
 }

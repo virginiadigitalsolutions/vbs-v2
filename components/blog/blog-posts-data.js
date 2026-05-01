@@ -1,8 +1,30 @@
-export const blogPosts = [
+const rawBlogCategories = [
+  {
+    name: "Digital Skills",
+    slug: "digital-skills",
+    title: "Digital Skills Blog in India",
+    description:
+      "Explore digital skills blog articles for students and professionals in India, with practical guidance on choosing relevant skills for long-term career growth.",
+    banner: "Digital Skills Articles",
+    intro:
+      "Structured blog content on digital skills, future-ready capabilities, and practical decisions for career growth in India.",
+  },
+  {
+    name: "Career Guides",
+    slug: "career-guides",
+    title: "Career Guides Blog in India",
+    description:
+      "Explore career guide blog articles in India that connect digital skills, roles, growth paths, and long-term professional direction.",
+    banner: "Career Guides Articles",
+    intro:
+      "Structured blog content on digital roles, career pathways, skill-to-role alignment, and long-term growth decisions in India.",
+  },
+];
+
+const rawBlogPosts = [
   {
     slug: "7-best-digital-skills-to-learn-in-2026-for-students-and-working-professionals-in-india",
     category: "Digital Skills",
-    categorySlug: "digital-skills",
     title:
       "7 Best Digital Skills to Learn in 2026 for Students and Working Professionals in India",
     metaTitle: "7 Best Digital Skills to Learn in 2026 for Career Growth in India",
@@ -314,18 +336,15 @@ export const blogPosts = [
   },
 ];
 
-export const blogCategories = [
-  {
-    slug: "digital-skills",
-    name: "Digital Skills",
-    title: "Digital Skills Blog in India",
-    description:
-      "Explore digital skills blog articles for students and professionals in India, with practical guidance on choosing relevant skills for long-term career growth.",
-    banner: "Digital Skills Articles",
-    intro:
-      "Structured blog content on digital skills, future-ready capabilities, and practical decisions for career growth in India.",
-  },
-];
+export const blogCategories = rawBlogCategories.map((category) => ({
+  ...category,
+}));
+
+export const blogPosts = rawBlogPosts.map((post) => ({
+  ...post,
+  categorySlug:
+    blogCategories.find((category) => category.name === post.category)?.slug || "",
+}));
 
 export function getBlogPostBySlug(slug) {
   return blogPosts.find((post) => post.slug === slug);

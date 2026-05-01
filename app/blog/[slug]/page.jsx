@@ -1,14 +1,34 @@
 import { notFound } from "next/navigation";
 
+import BlogCategoryHero from "@/components/blog/blog-category-hero";
+import BlogListGrid from "@/components/blog/blog-list-grid";
 import BlogPostBody from "@/components/blog/blog-post-body";
 import BlogPostHero from "@/components/blog/blog-post-hero";
-import { getBlogPostBySlug, blogPosts } from "@/components/blog/blog-posts-data";
+import {
+  blogCategories,
+  blogPosts,
+  getBlogCategoryBySlug,
+  getBlogPostBySlug,
+  getBlogPostsByCategorySlug,
+} from "@/components/blog/blog-posts-data";
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return [
+    ...blogCategories.map((category) => ({ slug: category.slug })),
+    ...blogPosts.map((post) => ({ slug: post.slug })),
+  ];
 }
 
 export function generateMetadata({ params }) {
+  const category = getBlogCategoryBySlug(params.slug);
+
+  if (category) {
+    return {
+      title: category.title,
+      description: category.description,
+    };
+  }
+
   const post = getBlogPostBySlug(params.slug);
 
   if (!post) {
@@ -24,6 +44,19 @@ export function generateMetadata({ params }) {
 }
 
 export default function BlogPostPage({ params }) {
+  const category = getBlogCategoryBySlug(params.slug);
+
+  if (category) {
+    const posts = getBlogPostsByCategorySlug(category.slug);
+
+    return (
+      <div>
+        <BlogCategoryHero category={category} postCount={posts.length} />
+        <BlogListGrid posts={posts} />
+      </div>
+    );
+  }
+
   const post = getBlogPostBySlug(params.slug);
 
   if (!post) {
