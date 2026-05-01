@@ -1,73 +1,90 @@
+import Image from "next/image";
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
 
 export default function DigitalSkillsHeroSection() {
   return (
-    <section className="vbs-section relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top_left,_rgba(29,78,216,0.14),_transparent_48%),radial-gradient(ellipse_at_top_right,_rgba(15,118,110,0.14),_transparent_48%)]" />
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:px-8">
-        <div className="relative z-10 max-w-3xl">
+    <section className="vbs-section relative overflow-hidden bg-white">
+      {/* Decorative Background */}
+      <div className="absolute inset-x-0 top-0 h-[500px] bg-[radial-gradient(ellipse_at_top_left,_rgba(29,78,216,0.08),_transparent_48%),radial-gradient(ellipse_at_top_right,_rgba(15,118,110,0.08),_transparent_48%)]" />
+      <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-slate-50 to-transparent z-0" />
+      
+      <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 relative z-10">
+        
+        {/* Text Content */}
+        <div className="relative z-10 max-w-3xl animate-fade-in-up">
           <SectionEyebrow>
-            Choosing the Right Digital Skills for Long-Term Growth
+            Choosing the Right Digital Skills
           </SectionEyebrow>
-          <h1 className="mt-6 font-heading text-5xl leading-[1.06] text-slate-950 sm:text-6xl">
-            Understand which digital skills matter and how they shape real
-            careers
+          <h1 className="mt-6 font-heading text-5xl leading-[1.08] text-slate-950 sm:text-6xl md:text-[4rem] tracking-tight">
+            Navigate your career with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">future-proof skills</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-600">
-            Understand which digital skills matter and how they shape real
-            careers.
+          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-slate-600">
+            Digital skills shape how modern teams operate, communicate, and solve problems. Learn how to choose skills that support long-term adaptability rather than short-term hype.
           </p>
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-600">
-            Digital skills shape how modern teams operate, communicate, and
-            solve problems. Yet not every trending tool or certification
-            translates into meaningful career progress. Choosing the right skill
-            requires understanding how it fits into real workflows, how it
-            evolves with technology, and how it supports long-term adaptability
-            rather than short-term momentum.
-          </p>
+          
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <button className="vbs-button-primary group">
+              Start Your Journey
+              <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+            <button className="vbs-button-secondary">
+              View Skill Clusters
+            </button>
+          </div>
+
+          <div className="mt-12 flex items-center gap-6 border-t border-slate-100 pt-8">
+             <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`User ${i}`} width={40} height={40} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+             </div>
+             <p className="text-sm font-medium text-slate-600">
+               Join <span className="text-blue-700 font-bold">10,000+</span> professionals growing their digital skills.
+             </p>
+          </div>
         </div>
 
-        <div className="vbs-card p-6 lg:p-8">
-          <div className="rounded-[1.75rem] bg-[linear-gradient(135deg,#0b1a42_0%,#1d4ed8_62%,#0f766e_100%)] p-7 text-white">
-            <p className="text-sm font-bold tracking-[0.18em] text-blue-100 uppercase">
-              Skill Decision Lens
-            </p>
-            <div className="mt-6 space-y-4">
-              {[
-                "Choose skills that fit real workflows",
-                "Focus on long-term adaptability over hype",
-                "Look for role alignment, not just course popularity",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[1.25rem] border border-white/15 bg-white/10 p-4 backdrop-blur-sm"
-                >
-                  <p className="text-base leading-7 text-blue-50">{item}</p>
-                </div>
-              ))}
+        {/* Visual Content */}
+        <div className="relative lg:h-[600px] flex items-center justify-center animate-fade-in-up delay-200">
+          {/* Main Visual Card */}
+          <div className="relative w-full aspect-square md:aspect-auto md:h-full max-h-[500px] rounded-[2.5rem] bg-gradient-to-br from-blue-50 to-teal-50/30 border border-slate-100 shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            <Image
+              src="/images/hero_digital_skills.png"
+              alt="Digital Skills Illustration"
+              fill
+              className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+              priority
+            />
+            
+            {/* Floating Elements overlay */}
+            <div className="absolute top-8 -left-6 md:-left-12 bg-white/90 backdrop-blur-md border border-slate-200/50 p-4 rounded-2xl shadow-xl animate-[fade-in-up_1s_ease-out_0.5s_both]">
+               <div className="flex items-center gap-3">
+                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                 </div>
+                 <div>
+                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Fast Track</p>
+                   <p className="text-sm font-bold text-slate-900">Skill Acquisition</p>
+                 </div>
+               </div>
             </div>
-          </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[1.25rem] border border-slate-200 bg-[#EEF2FF] p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#1d4ed8]">
-                Long-Term Value
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Skills should remain useful even as tools and platforms keep
-                changing.
-              </p>
-            </div>
-            <div className="rounded-[1.25rem] border border-slate-200 bg-[#ECFDF5] p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">
-                Real Application
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Practical execution matters more than collecting isolated
-                credentials.
-              </p>
+
+            <div className="absolute bottom-12 -right-4 md:-right-8 bg-white/90 backdrop-blur-md border border-slate-200/50 p-5 rounded-2xl shadow-xl animate-[fade-in-up_1s_ease-out_0.8s_both]">
+               <p className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1">Success Rate</p>
+               <div className="flex items-end gap-2">
+                 <span className="text-3xl font-black text-slate-900 leading-none">94%</span>
+                 <span className="text-sm font-medium text-slate-500 pb-1">career growth</span>
+               </div>
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

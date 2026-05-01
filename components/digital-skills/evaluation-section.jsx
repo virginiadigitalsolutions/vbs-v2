@@ -3,42 +3,61 @@ import { evaluationPoints } from "@/components/digital-skills/digital-skills-dat
 
 export default function DigitalSkillsEvaluationSection() {
   return (
-    <section className="vbs-section bg-[#eef2ff]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <SectionEyebrow>
-            How to Evaluate a Digital Skill Before Committing
+    <section className="vbs-section bg-slate-900 text-white relative overflow-hidden">
+      {/* Dark mode background decoration */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+      <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-600 opacity-20 blur-[100px]" />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl animate-fade-in-up">
+          <SectionEyebrow className="text-blue-400">
+            Evaluating a Digital Skill
           </SectionEyebrow>
-          <h2 className="vbs-heading mt-6 max-w-[14ch]">
-            Demand matters, but sustainability matters more.
+          <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-white sm:text-5xl">
+            Demand matters, but <span className="text-blue-400">sustainability matters more.</span>
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            Choosing a skill requires more than identifying demand. It requires
-            examining how sustainable and transferable that skill will be over
-            time. Before investing time or money, consider the following:
+          <p className="mt-6 text-lg leading-relaxed text-slate-300">
+            Choosing a skill requires more than identifying demand. It requires examining how sustainable and transferable that skill will be over time. Before investing time or money, consider the following checklist:
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {evaluationPoints.map((item, index) => (
-            <article key={item.title} className="vbs-card bg-white p-7">
-              <p className="text-sm font-black tracking-[0.18em] text-[#1d4ed8] uppercase">
-                0{index + 1}
-              </p>
-              <h3 className="mt-4 font-heading text-2xl text-slate-900">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-base leading-7 text-slate-600">
+            <article 
+              key={item.title} 
+              className="group relative rounded-[2rem] bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 transition-colors hover:bg-slate-800 animate-fade-in-up"
+              style={{ animationDelay: `${(index % 3) * 100 + 100}ms` }}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-xl font-black text-blue-400 border border-blue-500/20">
+                   {index + 1}
+                 </div>
+                 <h3 className="font-heading text-xl text-white leading-tight">
+                   {item.title}
+                 </h3>
+              </div>
+              <p className="text-base leading-7 text-slate-400">
                 {item.text}
               </p>
+              
+              {/* Decorative line */}
+              <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             </article>
           ))}
         </div>
 
-        <p className="mt-10 max-w-4xl text-lg leading-8 text-slate-600">
-          Evaluating a skill through this lens helps reduce impulsive decisions
-          and builds a more resilient foundation for long-term growth.
-        </p>
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-teal-600 rounded-[2rem] p-1 animate-fade-in-up delay-300">
+          <div className="bg-slate-900 rounded-[1.85rem] p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xl leading-8 text-slate-200">
+                Evaluating a skill through this lens helps reduce impulsive decisions and builds a more resilient foundation for long-term growth.
+              </p>
+            </div>
+            <button className="whitespace-nowrap px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-blue-50 transition-colors">
+              Start Evaluating
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

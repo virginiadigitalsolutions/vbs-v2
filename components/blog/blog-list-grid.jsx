@@ -45,7 +45,7 @@ export default function BlogListGrid({ posts }) {
                 </span>
               </div>
               <div className="mt-8">
-                <Link href={`/blog/${post.slug}`} className="vbs-button-primary">
+                <Link href={`/blog/${post.categorySlug}/${post.slug}`} className="vbs-button-primary">
                   Read Article
                 </Link>
               </div>

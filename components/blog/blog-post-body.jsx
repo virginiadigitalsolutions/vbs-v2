@@ -173,13 +173,14 @@ export default function BlogPostBody({ post }) {
     <section className="vbs-section bg-[#F5F7FA]">
       <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.72fr_0.28fr] lg:px-8">
         <div className="vbs-card bg-white p-8 lg:p-12">
-          <div className="mb-10 flex flex-wrap items-center gap-3 text-sm font-medium text-slate-500">
-            <Link href="/blog" className="transition hover:text-[#1d4ed8]">
-              Blog
-            </Link>
-            <span>/</span>
-            <span className="text-slate-700">{post.category}</span>
-          </div>
+          {/* Intro paragraphs */}
+          {post.intro?.length > 0 && (
+            <div className="mb-12 space-y-5 text-lg leading-8 text-slate-600">
+              {post.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          )}
           <div className="grid gap-14">
             {post.sections.map((section) => (
               <SectionBlock key={section.id} section={section} />

@@ -36,6 +36,8 @@ const rawBlogPosts = [
       "Explore seven practical digital skills that connect to real career opportunities, long-term growth, and employability across India in 2026.",
     dateLabel: "May 1, 2026",
     readTime: "10 min read",
+    author: "Virginia Business Solutions",
+    authorRole: "Digital Skills & Career Growth",
     intro: [
       "This happens more often than people expect. Someone with an average degree gets a better job than someone with higher qualifications simply because they know how to run ads, analyze data, create content that brings traffic, or build and manage digital systems.",
       "That difference is rarely luck. It is skill.",
