@@ -1,0 +1,32 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="700" rx="32" fill="url(#bg)"/>
+  <rect x="70" y="90" width="760" height="520" rx="28" fill="white" fill-opacity="0.92"/>
+  <path d="M150 500C220 410 290 340 380 290C470 240 560 210 690 180" stroke="#1D4ED8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M150 500C250 455 350 420 455 390C560 360 645 330 720 280" stroke="#0F766E" stroke-width="10" stroke-linecap="round" stroke-dasharray="1 24"/>
+  <circle cx="178" cy="470" r="42" fill="#DBEAFE"/>
+  <circle cx="412" cy="312" r="46" fill="#E6FFFB"/>
+  <circle cx="692" cy="188" r="50" fill="#EEF2FF"/>
+  <text x="150" y="478" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="24" font-weight="700">Entry</text>
+  <text x="378" y="320" fill="#0F766E" font-family="Arial, sans-serif" font-size="24" font-weight="700">Mid</text>
+  <text x="654" y="196" fill="#0B1A42" font-family="Arial, sans-serif" font-size="24" font-weight="700">Senior</text>
+  <rect x="128" y="154" width="168" height="108" rx="22" fill="#F8FAFC"/>
+  <rect x="152" y="184" width="118" height="12" rx="6" fill="#1D4ED8"/>
+  <rect x="152" y="208" width="88" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="330" y="420" width="178" height="114" rx="22" fill="#F8FAFC"/>
+  <rect x="356" y="452" width="122" height="12" rx="6" fill="#0F766E"/>
+  <rect x="356" y="476" width="96" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="584" y="360" width="184" height="120" rx="22" fill="#F8FAFC"/>
+  <rect x="612" y="394" width="128" height="12" rx="6" fill="#0B1A42"/>
+  <rect x="612" y="418" width="92" height="10" rx="5" fill="#94A3B8"/>
+  <path d="M286 208H352" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
+  <path d="M508 478H566" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
+  <path d="M340 184L370 208L340 232" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M550 454L580 478L550 502" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="32" x2="840" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FF"/>
+      <stop offset="0.55" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F0FDFA"/>
+    </linearGradient>
+  </defs>
+</svg>

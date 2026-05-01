@@ -1,0 +1,42 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="700" rx="32" fill="url(#bg)"/>
+  <rect x="72" y="84" width="756" height="532" rx="28" fill="white" fill-opacity="0.9"/>
+  <rect x="118" y="132" width="180" height="400" rx="28" fill="#EEF2FF"/>
+  <rect x="360" y="132" width="180" height="400" rx="28" fill="#E6FFFB"/>
+  <rect x="602" y="132" width="180" height="400" rx="28" fill="#F8FAFC"/>
+  <circle cx="208" cy="188" r="28" fill="#1D4ED8"/>
+  <circle cx="450" cy="188" r="28" fill="#0F766E"/>
+  <circle cx="692" cy="188" r="28" fill="#0B1A42"/>
+  <text x="194" y="197" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">1</text>
+  <text x="436" y="197" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">2</text>
+  <text x="678" y="197" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">3</text>
+  <text x="142" y="256" fill="#0F172A" font-family="Arial, sans-serif" font-size="32" font-weight="700">Beginner</text>
+  <text x="383" y="256" fill="#0F172A" font-family="Arial, sans-serif" font-size="32" font-weight="700">Intermediate</text>
+  <text x="635" y="256" fill="#0F172A" font-family="Arial, sans-serif" font-size="32" font-weight="700">Advanced</text>
+  <rect x="144" y="292" width="110" height="10" rx="5" fill="#1D4ED8"/>
+  <rect x="144" y="314" width="86" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="144" y="336" width="94" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="386" y="292" width="124" height="10" rx="5" fill="#0F766E"/>
+  <rect x="386" y="314" width="96" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="386" y="336" width="102" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="628" y="292" width="118" height="10" rx="5" fill="#0B1A42"/>
+  <rect x="628" y="314" width="88" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="628" y="336" width="98" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="144" y="392" width="126" height="54" rx="18" fill="white"/>
+  <rect x="386" y="392" width="126" height="54" rx="18" fill="white"/>
+  <rect x="628" y="392" width="126" height="54" rx="18" fill="white"/>
+  <path d="M308 334H350" stroke="#1D4ED8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M550 334H592" stroke="#0F766E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M336 306L366 334L336 362" stroke="#1D4ED8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M578 306L608 334L578 362" stroke="#0F766E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="170" y="482" width="76" height="18" rx="9" fill="#DBEAFE"/>
+  <rect x="412" y="482" width="76" height="18" rx="9" fill="#CCFBF1"/>
+  <rect x="654" y="482" width="76" height="18" rx="9" fill="#E2E8F0"/>
+  <defs>
+    <linearGradient id="bg" x1="42" y1="34" x2="836" y2="652" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FF"/>
+      <stop offset="0.55" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F0FDFA"/>
+    </linearGradient>
+  </defs>
+</svg>

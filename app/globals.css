@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --brand-deep-blue: #0b1a42;
+  --brand-mid-blue: #1d4ed8;
+  --brand-light-blue: #eef2ff;
+  --brand-soft-grey: #f8fafc;
+  --brand-teal: #0f766e;
+  --brand-warm: #f59e0b;
+  --text-dark: #020617;
+  --text-medium: #334155;
+  --text-light: #64748b;
+  --background: #fdfdfd;
+  --foreground: var(--text-dark);
+  --surface: #ffffff;
+  --surface-strong: #f1f5f9;
+  --border: #e2e8f0;
+  --accent: var(--brand-mid-blue);
+  --accent-soft: var(--brand-light-blue);
+  --muted: var(--text-medium);
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Fraunces", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Dynamic Mesh Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.05), transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(15, 118, 110, 0.05), transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.02), transparent 40%);
+  z-index: -1;
+  animation: mesh-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2%, 2%) scale(1.05); }
+  100% { transform: translate(2%, -2%) scale(1); }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vbs-section {
+  padding: 112px 0;
+  position: relative;
+}
+
+.vbs-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphic Card Base */
+.vbs-card {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: all 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vbs-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+  pointer-events: none;
+  transition: all 400ms ease;
+}
+
+.vbs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(29, 78, 216, 0.12), inset 0 1px 0 rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.vbs-card:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(29, 78, 216, 0.2);
+}
+
+.vbs-mini-card {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.vbs-mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(29, 78, 216, 0.08);
+}
+
+/* Premium Buttons */
+.vbs-button-primary,
+.vbs-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.vbs-button-primary {
+  background: linear-gradient(135deg, var(--brand-mid-blue) 0%, var(--brand-deep-blue) 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(29, 78, 216, 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+  border: none;
+}
+
+.vbs-button-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--brand-deep-blue) 0%, var(--brand-mid-blue) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.vbs-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(29, 78, 216, 0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.vbs-button-primary:hover::before {
+  opacity: 1;
+}
+
+.vbs-button-secondary {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--text-dark);
+}
+
+.vbs-button-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29, 78, 216, 0.3);
+  color: var(--brand-mid-blue);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+  background: #ffffff;
+}
+
+.vbs-wave-separator {
+  height: 64px;
+  mask-image: radial-gradient(circle at 32px -10px, transparent 46px, black 48px);
+  -webkit-mask-image: radial-gradient(circle at 32px -10px, transparent 46px, black 48px);
+  background: var(--brand-light-blue);
+  width: 100%;
+}
+
+img {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .vbs-section {
+    padding: 80px 0;
+  }
+}
+
+::selection {
+  background: rgba(29, 78, 216, 0.2);
+  color: var(--text-dark);
+}
+
+/* Reveal Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+.opacity-0 { opacity: 0; }
