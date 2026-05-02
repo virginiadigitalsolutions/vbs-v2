@@ -1,102 +1,12 @@
 import { contactSubjects } from "@/components/contact/contact-data";
-import ContactSectionEyebrow from "@/components/contact/section-eyebrow";
-import CTAButton from "@/components/ui/cta-button";
+import ContactFormClient from "@/components/contact/contact-form-client";
 
 export default function ContactFormSection() {
   return (
     <section className="vbs-section bg-[#F5F7FA]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="vbs-card p-8 lg:p-10">
-            <ContactSectionEyebrow>Get In Touch</ContactSectionEyebrow>
-            <h2 className="mt-6 font-heading text-4xl leading-tight text-slate-950">
-              Send your message with the right context
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Share your question, feedback, or collaboration interest with a
-              little context so the response can be more useful and relevant.
-            </p>
-
-            <form className="mt-10 grid gap-6">
-              <div className="grid gap-2">
-                <label
-                  htmlFor="full-name"
-                  className="text-sm font-semibold text-slate-700"
-                >
-                  Full Name
-                </label>
-                <input
-                  id="full-name"
-                  name="fullName"
-                  type="text"
-                  placeholder="Enter your full name"
-                  className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#2563EB] focus:ring-4 focus:ring-[#DBEAFE]"
-                />
-              </div>
-
-              <div className="grid gap-2">
-                <label
-                  htmlFor="email-address"
-                  className="text-sm font-semibold text-slate-700"
-                >
-                  Email Address
-                </label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#2563EB] focus:ring-4 focus:ring-[#DBEAFE]"
-                />
-              </div>
-
-              <div className="grid gap-2">
-                <label
-                  htmlFor="subject"
-                  className="text-sm font-semibold text-slate-700"
-                >
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  defaultValue=""
-                  className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#2563EB] focus:ring-4 focus:ring-[#DBEAFE]"
-                >
-                  <option value="" disabled>
-                    Select a subject
-                  </option>
-                  {contactSubjects.map((subject) => (
-                    <option key={subject} value={subject}>
-                      {subject}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="grid gap-2">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-semibold text-slate-700"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  placeholder="Tell us a little about your question or enquiry"
-                  className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition focus:border-[#2563EB] focus:ring-4 focus:ring-[#DBEAFE]"
-                />
-              </div>
-
-              <div>
-                <CTAButton type="submit" variant="primary">
-                  Submit
-                </CTAButton>
-              </div>
-            </form>
-          </div>
+          <ContactFormClient />
 
           <div className="grid gap-6">
             <article className="vbs-card bg-white p-8">

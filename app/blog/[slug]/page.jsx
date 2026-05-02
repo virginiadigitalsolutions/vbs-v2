@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import BlogCategoryHero from "@/components/blog/blog-category-hero";
 import BlogListGrid from "@/components/blog/blog-list-grid";
 import {
-  blogCategories,
   getBlogCategoryBySlug,
   getBlogPostsByCategorySlug,
-} from "@/components/blog/blog-posts-data";
+  getBlogCategories,
+} from "@/lib/blog-content";
 
 export function generateStaticParams() {
-  return blogCategories.map((category) => ({ slug: category.slug }));
+  return getBlogCategories().map((category) => ({ slug: category.slug }));
 }
 
 export async function generateMetadata({ params }) {

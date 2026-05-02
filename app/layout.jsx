@@ -1,6 +1,5 @@
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import LayoutChrome from "@/components/layout-chrome";
 
 export const metadata = {
   metadataBase: new URL("https://www.virginiabusinesssolutions.in"),
@@ -21,11 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-white text-slate-900 antialiased">
-        <div className="min-h-screen flex flex-col bg-[linear-gradient(180deg,_#f8fbff_0%,_#ffffff_22%,_#f5f7fa_100%)]">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <LayoutChrome>{children}</LayoutChrome>
       </body>
     </html>
   );

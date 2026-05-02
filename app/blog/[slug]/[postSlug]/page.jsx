@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import BlogPostBody from "@/components/blog/blog-post-body";
 import BlogPostHero from "@/components/blog/blog-post-hero";
 import {
-  blogPosts,
   getBlogCategoryBySlug,
   getBlogPostBySlug,
-} from "@/components/blog/blog-posts-data";
+  getAllBlogPosts,
+} from "@/lib/blog-content";
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return getAllBlogPosts().map((post) => ({
     slug: post.categorySlug,
     postSlug: post.slug,
   }));
