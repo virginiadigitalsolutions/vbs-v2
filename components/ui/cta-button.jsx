@@ -19,7 +19,7 @@ export default function CTAButton({
   };
 
   const spanColorClasses = {
-    primary: "text-white",
+    primary: "!text-white",
     secondary: "text-slate-700",
     light: "text-blue-700"
   };

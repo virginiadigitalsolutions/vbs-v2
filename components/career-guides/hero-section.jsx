@@ -11,7 +11,7 @@ export default function CareerGuidesHeroSection() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-8">
         <div className="relative z-10 max-w-3xl">
           <SectionEyebrow>{heroData.eyebrow}</SectionEyebrow>
-          <h1 className="mt-6 font-heading text-5xl font-black tracking-tight leading-[1.1] text-slate-900 sm:text-6xl lg:text-[4rem]">
+          <h1 className="mt-6 font-heading text-4xl font-black tracking-tight leading-[1.1] text-slate-900 sm:text-6xl lg:text-[4rem]">
             {heroData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">{heroData.heading.highlight}</span>{heroData.heading.suffix}
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-8 text-slate-600 font-medium">

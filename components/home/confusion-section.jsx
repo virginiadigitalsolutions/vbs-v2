@@ -5,14 +5,14 @@ import { confusionData, confusionPoints } from "@/components/home/home-data";
 export default function ConfusionSection() {
   return (
     <section className="vbs-section relative overflow-hidden bg-slate-900 text-white">
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay"></div>
+      <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1)_0%,transparent_60%)] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.15)_0%,transparent_60%)] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-8 relative z-10">
         <div>
           <SectionLabel className="bg-white/10 text-slate-200 border-white/20 backdrop-blur-md px-4 py-1 rounded-full inline-block">{confusionData.eyebrow}</SectionLabel>
-          <h2 className="mt-6 font-heading text-5xl sm:text-6xl font-black leading-tight text-white opacity-0 animate-fade-in-up delay-100">
+          <h2 className="mt-6 font-heading text-4xl sm:text-6xl font-black leading-tight text-white opacity-0 animate-fade-in-up delay-100">
             {confusionData.heading.line1}
             <br />
             <span className="text-slate-400">{confusionData.heading.line2}</span>
