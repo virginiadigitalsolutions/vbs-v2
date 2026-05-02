@@ -1,5 +1,7 @@
 import Image from "next/image";
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
+import CTAButton from "@/components/ui/cta-button";
+import { heroData } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsHeroSection() {
   return (
@@ -13,25 +15,22 @@ export default function DigitalSkillsHeroSection() {
         {/* Text Content */}
         <div className="relative z-10 max-w-3xl animate-fade-in-up">
           <SectionEyebrow>
-            Choosing the Right Digital Skills
+            {heroData.eyebrow}
           </SectionEyebrow>
           <h1 className="mt-6 font-heading text-5xl leading-[1.08] text-slate-950 sm:text-6xl md:text-[4rem] tracking-tight">
-            Navigate your career with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">future-proof skills</span>
+            {heroData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">{heroData.heading.highlight}</span>
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-slate-600">
-            Digital skills shape how modern teams operate, communicate, and solve problems. Learn how to choose skills that support long-term adaptability rather than short-term hype.
+            {heroData.description}
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <button className="vbs-button-primary group">
-              Start Your Journey
-              <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </button>
-            <button className="vbs-button-secondary">
-              View Skill Clusters
-            </button>
+            <CTAButton href={heroData.buttons.primary.href} variant="primary">
+              {heroData.buttons.primary.label}
+            </CTAButton>
+            <CTAButton href={heroData.buttons.secondary.href} variant="secondary" showArrow={false}>
+              {heroData.buttons.secondary.label}
+            </CTAButton>
           </div>
 
           <div className="mt-12 flex items-center gap-6 border-t border-slate-100 pt-8">
@@ -43,7 +42,7 @@ export default function DigitalSkillsHeroSection() {
                 ))}
              </div>
              <p className="text-sm font-medium text-slate-600">
-               Join <span className="text-blue-700 font-bold">10,000+</span> professionals growing their digital skills.
+               Join <span className="text-blue-700 font-bold">{heroData.socialProof.count}</span> {heroData.socialProof.text}
              </p>
           </div>
         </div>
@@ -55,8 +54,8 @@ export default function DigitalSkillsHeroSection() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
             <Image
-              src="/images/hero_digital_skills.png"
-              alt="Digital Skills Illustration"
+              src={heroData.image.src}
+              alt={heroData.image.alt}
               fill
               className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
               priority
@@ -66,20 +65,20 @@ export default function DigitalSkillsHeroSection() {
             <div className="absolute top-8 -left-6 md:-left-12 bg-white/90 backdrop-blur-md border border-slate-200/50 p-4 rounded-2xl shadow-xl animate-[fade-in-up_1s_ease-out_0.5s_both]">
                <div className="flex items-center gap-3">
                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={heroData.floatingBadges[0].iconPath} /></svg>
                  </div>
                  <div>
-                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Fast Track</p>
-                   <p className="text-sm font-bold text-slate-900">Skill Acquisition</p>
+                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{heroData.floatingBadges[0].title}</p>
+                   <p className="text-sm font-bold text-slate-900">{heroData.floatingBadges[0].subtitle}</p>
                  </div>
                </div>
             </div>
 
             <div className="absolute bottom-12 -right-4 md:-right-8 bg-white/90 backdrop-blur-md border border-slate-200/50 p-5 rounded-2xl shadow-xl animate-[fade-in-up_1s_ease-out_0.8s_both]">
-               <p className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1">Success Rate</p>
+               <p className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1">{heroData.floatingBadges[1].label}</p>
                <div className="flex items-end gap-2">
-                 <span className="text-3xl font-black text-slate-900 leading-none">94%</span>
-                 <span className="text-sm font-medium text-slate-500 pb-1">career growth</span>
+                 <span className="text-3xl font-black text-slate-900 leading-none">{heroData.floatingBadges[1].title}</span>
+                 <span className="text-sm font-medium text-slate-500 pb-1">{heroData.floatingBadges[1].subtitle}</span>
                </div>
             </div>
           </div>

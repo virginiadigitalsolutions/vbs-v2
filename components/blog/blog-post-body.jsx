@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTAButton from "@/components/ui/cta-button";
 
 function SectionBlock({ section }) {
   return (
@@ -195,15 +196,12 @@ export default function BlogPostBody({ post }) {
               Turn skill clarity into structured learning and career direction
             </h2>
             <div className="mt-7 flex flex-wrap gap-4">
-              <Link href="/digital-skills" className="vbs-button-secondary">
+              <CTAButton href="/digital-skills" variant="light" className="!px-6 !py-3">
                 Explore Digital Skills
-              </Link>
-              <Link
-                href="/courses-certifications"
-                className="rounded-full border border-white/30 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-[#1E3A8A]"
-              >
+              </CTAButton>
+              <CTAButton href="/courses-certifications" variant="primary" showArrow={false} className="!px-6 !py-3">
                 View Courses & Certifications
-              </Link>
+              </CTAButton>
             </div>
           </div>
         </div>

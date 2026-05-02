@@ -1,9 +1,9 @@
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
-import { evaluationPoints } from "@/components/digital-skills/digital-skills-data";
+import { evaluationData, evaluationPoints } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsEvaluationSection() {
   return (
-    <section className="vbs-section bg-slate-900 text-white relative overflow-hidden">
+    <section className="vbs-section bg-slate-900 text-white relative overflow-hidden" id="evaluation">
       {/* Dark mode background decoration */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-600 opacity-20 blur-[100px]" />
@@ -11,13 +11,13 @@ export default function DigitalSkillsEvaluationSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl animate-fade-in-up">
           <SectionEyebrow className="text-blue-400">
-            Evaluating a Digital Skill
+            {evaluationData.eyebrow}
           </SectionEyebrow>
           <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-white sm:text-5xl">
-            Demand matters, but <span className="text-blue-400">sustainability matters more.</span>
+            {evaluationData.heading.prefix} <span className="text-blue-400">{evaluationData.heading.highlight}</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-slate-300">
-            Choosing a skill requires more than identifying demand. It requires examining how sustainable and transferable that skill will be over time. Before investing time or money, consider the following checklist:
+            {evaluationData.description}
           </p>
         </div>
 

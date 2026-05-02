@@ -1,10 +1,10 @@
 import Image from "next/image";
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
-import { aiExamples } from "@/components/digital-skills/digital-skills-data";
+import { aiData, aiExamples } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsAiSection() {
   return (
-    <section className="vbs-section bg-[#f8fafc] relative overflow-hidden">
+    <section className="vbs-section bg-[#f8fafc] relative overflow-hidden" id="ai-impact">
       {/* Abstract Background Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[500px] bg-gradient-to-tr from-blue-600/10 to-teal-400/10 rounded-full blur-[120px] pointer-events-none" />
       
@@ -12,13 +12,13 @@ export default function DigitalSkillsAiSection() {
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:items-center">
           
           <div className="animate-fade-in-up">
-            <SectionEyebrow>How AI Is Reshaping Digital Skills</SectionEyebrow>
+            <SectionEyebrow>{aiData.eyebrow}</SectionEyebrow>
             <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-slate-900 sm:text-5xl">
-              AI is not removing digital skills. It is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">redefining</span> how they are applied.
+              {aiData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">{aiData.heading.highlight}</span>
             </h2>
             <div className="mt-8 space-y-6 text-lg leading-relaxed text-slate-600">
               <p>
-                Tasks that once required manual effort are becoming automated, while strategic thinking, interpretation, and judgment are becoming more valuable.
+                {aiData.description}
               </p>
               <div className="p-6 rounded-[1.5rem] bg-white border border-slate-100 shadow-sm relative overflow-hidden group">
                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-teal-500 rounded-l-[1.5rem]" />
@@ -36,8 +36,8 @@ export default function DigitalSkillsAiSection() {
              {/* AI Image / Graphic */}
              <div className="relative w-full aspect-square md:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl mb-8">
                <Image 
-                 src="/images/ai_digital_skills.png" 
-                 alt="AI integration in digital skills" 
+                 src={aiData.image.src} 
+                 alt={aiData.image.alt} 
                  fill 
                  className="object-cover transition-transform duration-700 hover:scale-105"
                />

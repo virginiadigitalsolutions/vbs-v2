@@ -1,5 +1,6 @@
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
-import { skillClusters } from "@/components/digital-skills/digital-skills-data";
+import { clustersData, skillClusters } from "@/components/digital-skills/digital-skills-data";
+import Image from "next/image";
 
 const clusterIcons = {
   "Marketing & Growth Skills": (
@@ -21,17 +22,33 @@ const clusterIcons = {
 
 export default function DigitalSkillsClustersSection() {
   return (
-    <section className="vbs-section bg-white relative">
+    <section className="vbs-section bg-white relative" id="clusters">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl animate-fade-in-up">
-          <SectionEyebrow>Core Digital Skill Clusters</SectionEyebrow>
-          <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-slate-900 sm:text-5xl">
-            Understand the categories before focusing on specific tools
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            Digital skills are easier to evaluate when grouped into broader categories. Instead of focusing on individual tools or trending platforms, it helps to understand how different skills function within the larger digital ecosystem. Below are the primary clusters that shape most digital roles today.
-          </p>
+        
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:items-center">
+          <div className="max-w-3xl animate-fade-in-up">
+            <SectionEyebrow>{clustersData.eyebrow}</SectionEyebrow>
+            <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-slate-900 sm:text-5xl">
+              {clustersData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">{clustersData.heading.highlight}</span>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              {clustersData.description}
+            </p>
+          </div>
+
+          <div className="relative animate-fade-in-up delay-200">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-teal-50 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/60 bg-white/40 backdrop-blur-sm group">
+              <Image 
+                src={clustersData.image.src}
+                alt={clustersData.image.alt}
+                width={600}
+                height={400}
+                className="w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

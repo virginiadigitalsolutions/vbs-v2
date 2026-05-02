@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTAButton from "@/components/ui/cta-button";
 
 export default function BlogListGrid({ posts }) {
   return (
@@ -45,9 +46,9 @@ export default function BlogListGrid({ posts }) {
                 </span>
               </div>
               <div className="mt-8">
-                <Link href={`/blog/${post.categorySlug}/${post.slug}`} className="vbs-button-primary">
+                <CTAButton href={`/blog/${post.categorySlug}/${post.slug}`} variant="primary" className="!px-6 !py-3 !text-sm">
                   Read Article
-                </Link>
+                </CTAButton>
               </div>
             </article>
           ))}

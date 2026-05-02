@@ -1,9 +1,10 @@
 import Image from "next/image";
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
+import { approachData } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsApproachSection() {
   return (
-    <section className="vbs-section bg-[#f8fafc] relative overflow-hidden">
+    <section className="vbs-section bg-[#f8fafc] relative overflow-hidden" id="approach">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-100/40 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-teal-50/60 to-transparent rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
@@ -16,8 +17,8 @@ export default function DigitalSkillsApproachSection() {
              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 to-teal-500/5 rounded-[2.5rem] transform -rotate-3 scale-105" />
              <div className="absolute inset-0 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden">
                 <Image 
-                  src="/images/approach_illustration.png"
-                  alt="Structured Approach"
+                  src={approachData.image.src}
+                  alt={approachData.image.alt}
                   fill
                   className="object-cover object-center"
                 />
@@ -38,15 +39,15 @@ export default function DigitalSkillsApproachSection() {
           {/* Content Column */}
           <div className="order-1 lg:order-2 animate-fade-in-up delay-200">
             <SectionEyebrow>
-              Structured Approach
+              {approachData.eyebrow}
             </SectionEyebrow>
             <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-slate-900 sm:text-5xl">
-              Sustainable growth depends on <span className="text-blue-700">layered capability</span>
+              {approachData.heading.prefix} <span className="text-blue-700">{approachData.heading.highlight}</span>
             </h2>
             
             <div className="mt-8 space-y-6 text-lg leading-relaxed text-slate-600">
               <p>
-                The digital ecosystem expands constantly. New platforms emerge, automation reshapes processes, and short-form content often amplifies simplified success stories. This creates the illusion that learning a single tool or completing one course is enough.
+                {approachData.description}
               </p>
               
               <div className="pl-6 border-l-2 border-blue-600 py-2 my-8">

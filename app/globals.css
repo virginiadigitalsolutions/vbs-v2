@@ -131,63 +131,7 @@ a {
   box-shadow: 0 12px 32px rgba(29, 78, 216, 0.08);
 }
 
-/* Premium Buttons */
-.vbs-button-primary,
-.vbs-button-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  transition: all 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.vbs-button-primary {
-  background: linear-gradient(135deg, var(--brand-mid-blue) 0%, var(--brand-deep-blue) 100%);
-  color: white;
-  box-shadow: 0 12px 24px rgba(29, 78, 216, 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
-  border: none;
-}
-
-.vbs-button-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--brand-deep-blue) 0%, var(--brand-mid-blue) 100%);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 300ms ease;
-}
-
-.vbs-button-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(29, 78, 216, 0.35), inset 0 1px 0 rgba(255,255,255,0.3);
-}
-
-.vbs-button-primary:hover::before {
-  opacity: 1;
-}
-
-.vbs-button-secondary {
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  color: var(--text-dark);
-}
-
-.vbs-button-secondary:hover {
-  transform: translateY(-2px);
-  border-color: rgba(29, 78, 216, 0.3);
-  color: var(--brand-mid-blue);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-  background: #ffffff;
-}
+/* Premium Buttons (Now handled by CTAButton component) */
 
 .vbs-wave-separator {
   height: 64px;
@@ -235,3 +179,33 @@ img {
 .delay-500 { animation-delay: 500ms; }
 
 .opacity-0 { opacity: 0; }
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes bounce-slow-reverse {
+  0%, 100% {
+    transform: translateY(5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s infinite;
+}
+
+.animate-bounce-slow-reverse {
+  animation: bounce-slow-reverse 4.5s infinite;
+}

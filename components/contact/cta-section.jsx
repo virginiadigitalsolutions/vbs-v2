@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTAButton from "@/components/ui/cta-button";
 
 import ContactSectionEyebrow from "@/components/contact/section-eyebrow";
 
@@ -17,12 +18,12 @@ export default function ContactCtaSection() {
             direction with more clarity.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/digital-skills" className="vbs-button-primary">
+            <CTAButton href="/digital-skills" variant="primary">
               Explore Digital Skills
-            </Link>
-            <Link href="/courses-certifications" className="vbs-button-secondary">
+            </CTAButton>
+            <CTAButton href="/courses-certifications" variant="secondary" showArrow={false}>
               View Courses & Certifications
-            </Link>
+            </CTAButton>
           </div>
         </div>
       </div>

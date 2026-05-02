@@ -1,40 +1,57 @@
 import SectionEyebrow from "@/components/courses-certifications/section-eyebrow";
-import { evaluationChecks } from "@/components/courses-certifications/courses-data";
+import { evaluationData, evaluationChecks } from "@/components/courses-certifications/courses-data";
+import Image from "next/image";
 
 export default function CoursesEvaluationSection() {
   return (
-    <section className="vbs-section bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="vbs-card overflow-hidden p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <SectionEyebrow>How to Evaluate Any Course or Certification</SectionEyebrow>
-              <h2 className="vbs-heading mt-6 max-w-[14ch]">
-                Discipline in evaluation prevents wasted effort.
+    <section className="vbs-section bg-white relative overflow-hidden" id="evaluation">
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="vbs-card overflow-hidden p-0 rounded-[2.5rem] bg-white shadow-2xl shadow-blue-900/5 border border-slate-100">
+          <div className="grid lg:grid-cols-[1fr_1.1fr]">
+            
+            <div className="p-8 lg:p-14 lg:pr-10">
+              <SectionEyebrow>{evaluationData.eyebrow}</SectionEyebrow>
+              <h2 className="vbs-heading mt-6 font-bold text-4xl sm:text-5xl text-slate-900 leading-tight">
+                {evaluationData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">{evaluationData.heading.highlight}</span>.
               </h2>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Before enrolling, ask whether the learning path is structured,
-                practical, relevant, and aligned with your long-term direction.
+              <p className="mt-6 text-lg leading-relaxed text-slate-600">
+                {evaluationData.description}
               </p>
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Evaluating courses with discipline prevents wasted effort and
-                unnecessary switching.
-              </p>
+              
+              <div className="mt-10 relative rounded-2xl overflow-hidden shadow-lg shadow-teal-900/10 group">
+                <Image 
+                  src="/course_evaluation.png"
+                  alt="Course Evaluation Dashboard"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
             </div>
 
-            <div className="grid gap-4">
-              {evaluationChecks.map((item, index) => (
-                <div
-                  key={item}
-                  className="rounded-[1.35rem] border border-slate-200 bg-white p-5 shadow-[0_10px_24px_rgba(15,23,42,0.04)]"
-                >
-                  <p className="text-sm font-black tracking-[0.18em] text-[#1d4ed8] uppercase">
-                    Check 0{index + 1}
-                  </p>
-                  <p className="mt-3 text-base leading-7 text-slate-700">{item}</p>
-                </div>
-              ))}
+            <div className="bg-slate-50 p-8 lg:p-14 lg:pl-10 flex flex-col justify-center">
+              <div className="grid gap-5">
+                {evaluationChecks.map((item, index) => (
+                  <div
+                    key={item}
+                    className="group flex gap-5 rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-blue-200"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 font-bold font-heading text-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <p className="text-xs font-black tracking-widest text-slate-400 uppercase mb-2 group-hover:text-blue-500 transition-colors">
+                        Check 0{index + 1}
+                      </p>
+                      <p className="text-base leading-relaxed text-slate-700 font-medium group-hover:text-slate-900 transition-colors">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+            
           </div>
         </div>
       </div>

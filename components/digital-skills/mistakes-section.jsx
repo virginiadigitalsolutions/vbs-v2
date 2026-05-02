@@ -1,22 +1,22 @@
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
-import { mistakes } from "@/components/digital-skills/digital-skills-data";
+import { mistakesData, mistakes } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsMistakesSection() {
   return (
-    <section className="vbs-section bg-white relative overflow-hidden">
+    <section className="vbs-section bg-white relative overflow-hidden" id="mistakes">
       {/* Decorative Warning background */}
       <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-rose-50/50 to-transparent pointer-events-none" />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl animate-fade-in-up">
           <SectionEyebrow className="text-rose-600">
-            Common Mistakes
+            {mistakesData.eyebrow}
           </SectionEyebrow>
           <h2 className="mt-6 font-heading text-4xl leading-[1.1] text-slate-900 sm:text-5xl">
-            Better access to learning does not automatically create <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">better decisions.</span>
+            {mistakesData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">{mistakesData.heading.highlight}</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            The availability of online courses and tutorials has made digital learning more accessible than ever. However, accessibility does not eliminate poor decision-making. Some common mistakes include:
+            {mistakesData.description}
           </p>
         </div>
 

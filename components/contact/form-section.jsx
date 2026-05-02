@@ -1,5 +1,6 @@
 import { contactSubjects } from "@/components/contact/contact-data";
 import ContactSectionEyebrow from "@/components/contact/section-eyebrow";
+import CTAButton from "@/components/ui/cta-button";
 
 export default function ContactFormSection() {
   return (
@@ -90,9 +91,9 @@ export default function ContactFormSection() {
               </div>
 
               <div>
-                <button type="submit" className="vbs-button-primary">
+                <CTAButton type="submit" variant="primary">
                   Submit
-                </button>
+                </CTAButton>
               </div>
             </form>
           </div>

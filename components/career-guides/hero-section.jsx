@@ -1,67 +1,67 @@
 import Image from "next/image";
 import SectionEyebrow from "@/components/career-guides/section-eyebrow";
+import CTAButton from "@/components/ui/cta-button";
+import { heroData } from "@/components/career-guides/career-guides-data";
 
 export default function CareerGuidesHeroSection() {
   return (
-    <section className="vbs-section relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top_left,_rgba(29,78,216,0.14),_transparent_48%),radial-gradient(ellipse_at_top_right,_rgba(15,118,110,0.14),_transparent_48%)]" />
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:px-8">
+    <section className="vbs-section relative overflow-hidden bg-slate-50">
+      <div className="absolute inset-x-0 top-0 h-[600px] bg-[radial-gradient(ellipse_at_top_left,_rgba(29,78,216,0.1),_transparent_60%),radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.1),_transparent_60%)] opacity-80" />
+      
+      <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-8">
         <div className="relative z-10 max-w-3xl">
-          <SectionEyebrow>Understand Where Digital Skills Can Take You</SectionEyebrow>
-          <h1 className="mt-6 font-heading text-5xl leading-[1.06] text-slate-950 sm:text-6xl">
-            Digital Career Paths, Roles, and Long-Term Growth
+          <SectionEyebrow>{heroData.eyebrow}</SectionEyebrow>
+          <h1 className="mt-6 font-heading text-5xl font-black tracking-tight leading-[1.1] text-slate-900 sm:text-6xl lg:text-[4rem]">
+            {heroData.heading.prefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-teal-600">{heroData.heading.highlight}</span>{heroData.heading.suffix}
           </h1>
-          <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-600">
-            Explore real digital career paths, role expectations, growth
-            potential, and how structured learning translates into professional
-            outcomes.
+          <p className="mt-8 max-w-2xl text-xl leading-8 text-slate-600 font-medium">
+            {heroData.description}
           </p>
-          <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
-            <p>
-              Digital careers are not defined by titles alone, but by the
-              skills and capabilities that support them.
-            </p>
-            <p>
-              Understanding how roles evolve, what they demand, and how growth
-              happens over time brings structure to career decisions.
-            </p>
-            <p>
-              Clarity begins with seeing how skills translate into real
-              professional pathways.
-            </p>
+          <div className="mt-8 space-y-6 text-lg leading-8 text-slate-600 border-l-4 border-blue-600 pl-6 bg-white/50 p-6 rounded-r-2xl shadow-sm backdrop-blur-sm">
+            {heroData.paragraphs.map((p) => (
+              <p key={p.substring(0, 30)}>{p}</p>
+            ))}
+          </div>
+          
+          <div className="mt-10 flex flex-wrap gap-4">
+            <CTAButton href="#clarity" variant="primary">
+              {heroData.button.label}
+            </CTAButton>
           </div>
         </div>
 
-        <div className="vbs-card p-6 lg:p-8">
-          <div className="relative overflow-hidden rounded-[1.6rem] border border-white/70 bg-white/80 p-3 shadow-[0_18px_40px_rgba(29,78,216,0.08)]">
-            <Image
-              src="/career-growth-roadmap.svg"
-              alt="Digital career paths and skill growth roadmap in India"
-              width={900}
-              height={700}
-              className="h-auto w-full rounded-[1.2rem]"
-              priority
-            />
-          </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[1.25rem] border border-slate-200 bg-[#EEF2FF] p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#1d4ed8]">
-                Role Expectations
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Titles make more sense when you understand the skill
-                combinations behind them.
-              </p>
+        <div className="relative z-10 lg:ml-auto">
+          <div className="relative group perspective-1000">
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-blue-600 to-teal-500 opacity-30 blur-2xl transition duration-500 group-hover:opacity-50"></div>
+            <div className="relative overflow-hidden rounded-3xl border border-white/80 bg-white/40 p-4 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:scale-[1.02]">
+              <div className="overflow-hidden rounded-2xl bg-white">
+                <Image
+                  src={heroData.image.src}
+                  alt={heroData.image.alt}
+                  width={900}
+                  height={700}
+                  className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+              </div>
             </div>
-            <div className="rounded-[1.25rem] border border-slate-200 bg-[#ECFDF5] p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">
-                Long-Term Growth
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Progress depends on depth, adaptability, and measurable
-                contribution over time.
-              </p>
-            </div>
+            
+            {/* Floating Badges */}
+            {heroData.floatingBadges.map((badge, idx) => (
+              <div key={badge.title} className={`absolute ${idx === 0 ? '-left-8 top-1/4 animate-bounce-slow' : '-right-8 bottom-1/4 animate-bounce-slow-reverse'} hidden sm:block`}>
+                <div className="flex items-center gap-3 rounded-2xl border border-white/60 bg-white/90 p-4 shadow-xl backdrop-blur-md">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-full ${badge.color === 'blue' ? 'bg-blue-100 text-blue-700' : 'bg-teal-100 text-teal-700'}`}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={badge.iconPath} />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">{badge.title}</p>
+                    <p className="text-xs text-slate-500">{badge.subtitle}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

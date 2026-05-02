@@ -1,25 +1,41 @@
 import Link from "next/link";
 import SectionEyebrow from "@/components/digital-skills/section-eyebrow";
+import Image from "next/image";
+import { nextStepsData } from "@/components/digital-skills/digital-skills-data";
 
 export default function DigitalSkillsNextStepsSection() {
   return (
-    <section className="vbs-section bg-white pb-24">
+    <section className="vbs-section bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-[linear-gradient(135deg,#0b1a42_0%,#1d4ed8_72%,#0f766e_100%)] p-8 text-white lg:p-14 shadow-2xl animate-fade-in-up">
           {/* Background patterns */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.2)_0%,transparent_70%)] -translate-x-1/4 translate-y-1/4 pointer-events-none" />
           
-          <div className="relative z-10 max-w-3xl">
-            <SectionEyebrow className="text-teal-200">Where to Go Next</SectionEyebrow>
-            <h2 className="mt-6 font-heading text-4xl leading-tight text-white sm:text-5xl">
-              Clarity begins with choosing the right skill. Progress continues
-              with learning it strategically.
-            </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-blue-100">
-              Once you&apos;ve identified which skill cluster aligns with your
-              interests and strengths, the next step is structured learning.
-            </p>
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center relative z-10">
+            <div className="max-w-3xl">
+              <SectionEyebrow className="text-teal-200">{nextStepsData.eyebrow}</SectionEyebrow>
+              <h2 className="mt-6 font-heading text-4xl leading-tight text-white sm:text-5xl">
+                {nextStepsData.heading}
+              </h2>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-blue-100">
+                {nextStepsData.description}
+              </p>
+            </div>
+            
+            <div className="relative group perspective-1000 hidden lg:block">
+               <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 to-teal-300 rounded-[2rem] blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+               <div className="relative rounded-[2rem] overflow-hidden border border-white/20 bg-white/5 backdrop-blur-sm">
+                 <Image 
+                   src={nextStepsData.image.src}
+                   alt={nextStepsData.image.alt}
+                   width={500}
+                   height={400}
+                   className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+               </div>
+            </div>
           </div>
 
           <div className="relative z-10 mt-12 grid gap-6 md:grid-cols-2">

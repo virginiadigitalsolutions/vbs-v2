@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { frameworkSteps } from "@/components/home/home-data";
+import SectionLabel from "./section-label";
+import { frameworkData, frameworkSteps } from "@/components/home/home-data";
 
 export default function FrameworkSection() {
   return (
@@ -9,16 +10,14 @@ export default function FrameworkSection() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold tracking-[0.2em] text-[#1d4ed8] uppercase opacity-0 animate-fade-in-up">
-            A Clear Framework
-          </p>
+          <SectionLabel className="mx-auto bg-white shadow-sm border border-slate-100 px-4 py-1 rounded-full">
+            {frameworkData.eyebrow}
+          </SectionLabel>
           <h2 className="vbs-heading mt-6 opacity-0 animate-fade-in-up delay-100">
-            Follow a sequence that turns confusion into direction.
+            {frameworkData.heading}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-slate-600 opacity-0 animate-fade-in-up delay-200">
-            Instead of reacting to noise, move through a structured path:
-            understand the skill, evaluate where to learn it, and then connect it
-            to real career outcomes.
+            {frameworkData.description}
           </p>
         </div>
 
