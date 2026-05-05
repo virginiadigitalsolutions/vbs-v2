@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import BlogPostBody from "@/components/blog/blog-post-body";
 import BlogPostHero from "@/components/blog/blog-post-hero";
+import { buildArticleSchema, buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 import {
   getBlogCategoryBySlug,
   getBlogPostBySlug,
@@ -30,8 +31,13 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: post.metaTitle,
-    description: post.metaDescription,
+    ...buildPageMetadata({
+      title: post.metaTitle,
+      description: post.metaDescription,
+      path: `/blog/${slug}/${postSlug}`,
+      type: "article",
+      keywords: [post.category, "India", "digital skills", "career guidance"],
+    }),
   };
 }
 
@@ -49,8 +55,24 @@ export default async function BlogPostPage({ params }) {
     notFound();
   }
 
+  const articleSchema = buildArticleSchema(post);
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: category.name, path: `/blog/${category.slug}` },
+    { name: post.title, path: `/blog/${category.slug}/${post.slug}` },
+  ]);
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <BlogPostHero post={post} />
       <BlogPostBody post={post} />
     </div>

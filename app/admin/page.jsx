@@ -3,13 +3,16 @@ import Link from "next/link";
 import { requireAdminSession } from "@/lib/admin-session";
 import { getContactMessages } from "@/lib/contact-db";
 import { getAllBlogPosts } from "@/lib/blog-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const runtime = "nodejs";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Admin",
   description: "Admin panel for contact form messages.",
-};
+  path: "/admin",
+  noIndex: true,
+});
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("en-IN", {

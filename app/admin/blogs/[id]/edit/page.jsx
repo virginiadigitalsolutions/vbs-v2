@@ -4,13 +4,16 @@ import { notFound } from "next/navigation";
 import BlogForm from "@/components/admin/blog-form";
 import { requireAdminSession } from "@/lib/admin-session";
 import { getBlogCategories, getStoredBlogPostForEdit } from "@/lib/blog-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const runtime = "nodejs";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Edit Blog",
   description: "Update or delete blog posts from the admin panel.",
-};
+  path: "/admin/blogs/edit",
+  noIndex: true,
+});
 
 export default async function AdminEditBlogPage({ params }) {
   await requireAdminSession();

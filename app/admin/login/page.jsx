@@ -3,13 +3,16 @@ import { redirect } from "next/navigation";
 import AdminAuthForm from "@/components/admin/admin-auth-form";
 import { hasAdminUser } from "@/lib/admin-auth";
 import { getAdminSession } from "@/lib/admin-session";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const runtime = "nodejs";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Admin Login",
   description: "Admin sign in and setup page.",
-};
+  path: "/admin/login",
+  noIndex: true,
+});
 
 export default async function AdminLoginPage() {
   const session = await getAdminSession();

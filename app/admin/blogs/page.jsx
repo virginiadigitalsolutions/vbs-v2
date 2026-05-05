@@ -4,13 +4,16 @@ import BlogForm from "@/components/admin/blog-form";
 import BlogRowActions from "@/components/admin/blog-row-actions";
 import { requireAdminSession } from "@/lib/admin-session";
 import { getBlogCategories, getAllBlogPosts } from "@/lib/blog-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const runtime = "nodejs";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Admin Blogs",
   description: "Create and manage blog posts from the admin panel.",
-};
+  path: "/admin/blogs",
+  noIndex: true,
+});
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("en-IN", {
